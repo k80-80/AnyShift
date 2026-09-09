@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AnyShift User Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f7fbff;
+      --text-color: #5d7ca6;
+      --card-bg: #ffffff;
+      --highlight: #e7f2fb;
+      --border-accent: #89afc0;
+      --code-bg: #eef6fc;
+      --bg-color-tip: #fab96e;
+      --border-accent-tip: #fab96e;
+      --tip-bg: #ffe4d2;
+      --tip-color: #ef9300;
+    }
+    .important-box {
+  background: var(--tip-bg);
+  border-left: 4px solid var(--border-accent-tip);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 1.2em;
+  color: var(--tip-color);
+}
+
+.important-box summary {
+  color: var(--tip-color);
+  font-weight: bold;
+}
+
+.important-box summary .arrow {
+  fill: var(--tip-color);
+}
+
+    a:link, a:visited {
+    background-color: #89afc0;
+    color: white;
+    padding: 1px 3px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    transition: background 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    a:hover, a:active {
+    background-color: #f7fbff;
+    }
+
+    body.dark {
+      --bg-color: #1e1e1e;
+      --text-color: #78a2b6;
+      --card-bg: #2c2c2c;
+      --highlight: #333c50;
+      --border-accent: #66aaff;
+      --code-bg: #444;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .card {
+      max-width: 800px;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    .banner {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .toggle-container {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .toggle-button {
+      background: var(--card-bg);
+      color: var(--text-color);
+      font-family: 'Montserrat', sans-serif;
+      border: 2px solid var(--border-accent);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .toggle-button:hover {
+      background: var(--border-accent);
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: 0 0 0.5em;
+    }
+
+    h2 {
+      font-size: 1.6em;
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 1.3em;
+      margin: 0;
+    }
+
+    .section-header {
+      background-color: var(--highlight);
+      border-left: 4px solid var(--border-accent);
+      padding: 10px 16px;
+      border-radius: 8px;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .section {
+      background-color: var(--bg-color-tip);
+      border-left: 4px solid var(--border-accent-tip);
+      padding: 1px 1px;
+      border-radius: 4px;
+      margin-top: .5em;
+      margin-bottom: .5em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    ul {
+      padding-left: 1.2em;
+    }
+
+    code {
+      background-color: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    a {
+      color: var(--border-accent);
+      font-weight: 600;
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #2c6fc6;
+    }
+    
+    .tip-box {
+      background: var(--tip-bg);
+      color: var(--tip-color);
+      border-radius: 1px;
+      padding: 5px 18px;
+      box-shadow: 0 1px 8px #54e7e216;
+      text-align: center;
+      font-size: .9em;
+      margin-bottom: 1.2em;
+    }
+
+    .tip {
+      background: var(--highlight);
+      border-left: 4px solid var(--border-accent);
+      padding: 12px 16px;
+      margin: 1em 0;
+      border-radius: 8px;
+    }
+    
+    .section-emoji {
+      font-size: 2em;
+    }
+
+    .footer {
+      margin-top: 2em;
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    .website-button {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #f7fbff;
+      background-color: var(--highlight);
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .website-button:hover {
+      background-color: #f7fbff;
+    }
+
+    details {
+      margin-bottom: 1.2em;
+      background-color: var(--highlight);
+      border-left: 4px solid var(--border-accent);
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary .arrow {
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+      fill: var(--text-color);
+    }
+
+    details[open] summary .arrow {
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="toggle-container">
+      <button class="toggle-button" onclick="toggleMode()">🌓 Toggle Theme</button>
+    </div>
+
+    <img src="https://i.ibb.co/rGNFmXMz/Copy-of-Copy-of-Copy-of-Patreon-Banner-Template.png" alt="Mod Banner" class="banner">
+
+       <div class="tip-box">
+    <strong>⚠️REQUIRED </strong> <br>
+    
+<p style="text-align: center;"><a href="https://www.patreon.com/posts/midnitetech-121729961" target="_blank" class="website-button"><strong>📁midnitetech_modlibrary</strong></a><br /></p>
+</div>
+    
+
+    <details>
+      <summary><svg class="arrow" viewBox="0 0 8 8"><path d="M0 0 L6 4 L0 8 Z"/></svg><img src="https://i.ibb.co/KjCQxvhS/Any-Shift-icon.png" alt="" width="64" height="64" /> About AnyShift</summary>
+    
+<p><strong>AnyShift</strong> is a fully Base Game compatible mod that lets you set your Sim’s work and school schedules however you like.</p>
+<p>It includes preset shifts and several create‑your‑own options, including setting different hours for different days and even multiday schedules that can run across several days.</p>
+<p>To get started, you just need the mod itself and the latest version of my <a class="website-button" href="https://www.patreon.com/posts/midnitetech-121729961" target="_blank"><strong>📁modlibrary</strong></a>.</p>
+<p>Then, head to a <strong>Mailbox</strong> or <strong>Computer</strong> and select <strong>AnyShift: Choose Hours</strong>. You can also buy the <strong>AnyShift Calendar</strong> from Build/Buy (search <em>AnyShift</em> or look under <strong>Paintings &amp; Posters</strong>) and edit schedules directly. There are also a few minimal options under <strong>Phone → Business</strong>.</p>
+<p style="text-align: center;"><img src="https://i.ibb.co/XZC7sxSs/Untitled-design.png" alt="" width="200" height="180" /></p>
+<p style="text-align: left;">Your custom schedules will be saved to <code>C:\Users\YourName\Documents\Electronic Arts\The Sims 4\midnitetech_settings.json</code></p>
+    </details>
+    
+    <details>
+      <summary><svg class="arrow" viewBox="0 0 8 8"><path d="M0 0 L6 4 L0 8 Z"/></svg><img src="https://i.ibb.co/4wNSL9mB/1.png" alt="" width="64" height="64" /> Preset & Saved Templates</summary>
+    
+<p>This is where you’ll find preset schedules in four categories: <strong>Morning</strong>, <strong>Afternoon</strong>, <strong>Evening</strong>, and <strong>Night</strong>. Pick the shift you want, and it’ll apply straight to your Sim’s career. If your Sim has multiple careers or is also in <strong>School</strong> or <strong>University</strong>, you’ll see a separate interaction for each one so you always know exactly what you’re editing.</p><p style="text-align: center;"><img src="https://i.ibb.co/Q7xtCd4S/banner.png" alt="" width="500" height="50" />
+<p>You’ll also see <strong>Save Current Schedule as Template</strong>, which lets you save your Sim’s current shift pattern as a reusable template. You can name it and give it an icon. Once saved, it becomes available to every Sim in your save through <strong>My Custom Saved Schedules</strong>. You can delete any templates you no longer need from here too.<p style="text-align: center;"><img src="https://i.ibb.co/4Z1pLvQ3/mytestschedule.png" alt="" width="266" height="266" /></p>
+    </details>
+    
+    <details>
+      <summary><svg class="arrow" viewBox="0 0 8 8"><path d="M0 0 L6 4 L0 8 Z"/></svg><img src="https://i.ibb.co/vxGyfPcK/2.png" alt="" width="64" height="64" /> Create Custom Schedule</summary>
+      
+      <p>Ready to set up your own schedule? Choose <strong>AnyShift: Choose Hours</strong>, then pick each day you want your Sim to work (up to 7 if they’re a true workaholic). After that, set your <strong>Start</strong> and <strong>End</strong> time.<img src="https://i.ibb.co/SXt4j9J1/Untitled-design.png" alt="" width="500" height="250" />For example, choosing <strong>Monday</strong>, <strong>Tuesday</strong>, and <strong>Friday</strong> with a <strong>7:30 AM</strong> start and <strong>2:30 PM</strong> end will give your Sim a schedule of <strong>Monday, Tuesday, and Friday—7:30 AM to 2:30 PM</strong>.</p>
+</details>
+
+    <details>
+      <summary><svg class="arrow" viewBox="0 0 8 8"><path d="M0 0 L6 4 L0 8 Z"/></svg><img src="https://i.ibb.co/GQZ3Fppn/adv.png" alt="" width="64" height="64" /> Advanced Scheduling</summary>
+      
+<p><strong>Advanced Scheduling</strong> lets you set <strong>Extended</strong> or <strong>Variable</strong> schedules for your Sims. This option applies to standard careers only; it doesn’t affect University or School.</p>
+<h4><span style="text-decoration: underline;">Extended Schedules</span></h4>
+<p>Choose one <strong>Start day</strong>, <strong>Start time</strong>, and the <strong>length</strong> of the shift. For example, starting on <strong>Monday at 9 AM with a 72-hour</strong> duration means your Sim will head out Monday morning and return home three days later.</p>
+<h4><span style="text-decoration: underline;"><strong>Variable Schedules</strong></span></h4>
+<p>Set different hours for different workdays by grouping the days that share the same shift. For example, select <strong>Monday &amp; Tuesday</strong>, set <strong>7:00 AM–9:30 AM</strong>, and confirm with <strong>✅</strong>. You’ll then be able to add more workdays, plus choose which days your Sim has off. The schedule updates dynamically as you go, and you can <strong>Apply</strong> it once you’re done.</p>
+<p>This allows your Sim to follow shift patterns like:
+
+<p style="text-align: center;"><img src="https://i.ibb.co/twczr8kM/variableshifts.png" alt="" width="664" height="332" /></p>
+</details>
+
+    <details>
+      <summary><svg class="arrow" viewBox="0 0 8 8"><path d="M0 0 L6 4 L0 8 Z"/></svg><img src="https://i.ibb.co/Q7hSJsxN/VIEW.png" alt="" width="64" height="64" /> View Current Schedule</summary>
+      
+      <p>Check the schedule for each career your Sim has. The career panel updates dynamically to show your current shift pattern, but you can use this option, or the <strong>in‑game Calendar</strong>, to view each day’s schedule in full.<p style="text-align: center;"><img src="https://i.ibb.co/mFcQ4JxC/variableshifts.png" alt="" width="664" height="332" /></p>
+      
+      </details>
+      
+    <details>
+      <summary><svg class="arrow" viewBox="0 0 8 8"><path d="M0 0 L6 4 L0 8 Z"/></svg><img src="https://i.ibb.co/SbzNDVK/managecareers.png" alt="" width="64" height="64" /> Manage Multiple Careers</summary>
+      
+      <p style="text-align: left;"><span style="text-decoration: underline;"><strong>Add Another Career</strong></span></p>
+<p style="text-align: left;">You can add an additional career here without affecting your Sim’s existing job. Sims can hold multiple careers at the same time. If the hours overlap, use <strong>Create Custom Schedule</strong> to adjust each job’s work times so they fit together. Any degree entitlements will still apply, so you will get a career jump if your Sim is eligible.</p>
+<p style="text-align: left;"><strong><u>Quit Career</u></strong></p>
+<p style="text-align: left;">You can also quit any of your Sim’s active careers from this menu. Choose which job you want to remove without touching the others.</p>
+<p style="text-align: left;"><span style="text-decoration: underline;"><strong>EA/Other Mod Compatibility</strong></span></p>
+<p style="text-align: left;">This system doesn’t override EA’s built‑in career logic. If you use <strong>Find a Job</strong> through the standard EA interface, the usual rules still apply, and your Sim may lose any careers that are incompatible with the new one.</p>
+      
+      </details>
+      
+    <details>
+      <summary><svg class="arrow" viewBox="0 0 8 8"><path d="M0 0 L6 4 L0 8 Z"/></svg><img src="https://i.ibb.co/CsQ4jzf1/headline-gears-2d62d7495b01c1a8.png" alt="" width="64" height="64" /> Settings</summary>
+      
+      <p style="text-align: left;"><span style="text-decoration: underline;"><strong> Keep Schedule When Promoted</strong></span></p>
+<p style="text-align: left;">Your Sim will keep their current custom schedule after a promotion.</p>
+<p style="text-align: left;"><span style="text-decoration: underline;"><strong>Reset to Default When Promoted</strong></span></p>
+<p style="text-align: left;">When your Sim is promoted, their schedule will revert to the default instead of being retained.</p>
+<p style="text-align: left;"><span style="text-decoration: underline;"><strong>Reset Hours to Default</strong></span></p>
+<p style="text-align: left;">Resets your Sim’s current schedule back to the original default hours. This does not affect the promotion settings above.</p>
+      
+      </details>
+      
+      <details>
+      <summary><svg class="arrow" viewBox="0 0 8 8"><path d="M0 0 L6 4 L0 8 Z"/></svg><img src="https://i.ibb.co/35jBGyJZ/headline-Curious-74883bd1045f7136.png" alt="" width="64" height="64" /> FAQ</summary>
+
+<p><strong>Q. <span style="text-decoration: underline;">I can't find the AnyShift options menu!</span></strong></p>
+<p><strong>A. </strong>You can use the <strong>Calendar </strong>object by searching <strong>Build/Buy</strong> for <strong>AnyShift</strong>, or by heading to a Computer (under <strong>Career</strong>), Mailbox, or Phone (<strong>Business</strong>). If the options aren't showing up, you likely have an incorrectly installed or outdated version of my <a class="website-button" href="https://www.patreon.com/posts/midnitetech-121729961" target="_blank"><strong>📁modlibrary</strong></a></p>
+<hr />
+<p><strong>Q. <span style="text-decoration: underline;">The option to Take PTO (Paid Time Off) has disappeared.</span></strong></p>
+<p><strong>A.</strong> Sims can only take PTO if their next shift begins within 24 hours. If you’ve edited the schedule, the next shift is likely too far away for PTO to appear. This is normal EA behavior, not a mod issue.</p>
+<hr />
+<p><strong>Q. <span style="text-decoration: underline;">Can I edit my School or Discover University hours?</span></strong></p>
+<p><strong>A.</strong> Yes! If you're editing your university class hours, though, you must reschedule them so that you complete the required number <strong>before </strong>the end of the term, and you can only use <strong>Custom Schedules</strong>, not <strong>Advanced</strong>. You'll be notified if you select an incompatible day.</p>
+<hr />
+<p><strong>Q. <span style="text-decoration: underline;">How do I choose my Days Off in Create Custom Schedule?</span></strong></p>
+<p><strong>A. </strong>Only select the <strong>Shift Days </strong>that you want your Sim to attend work.</p>
+<hr />
+<p>ℹ️ Question not answered here? Send me a <strong><a href="https://midnitetechmods.com/contact">message</a></strong> and I'll get back to you ASAP. </p>
+    
+  </details>
+  
+    <div class="footer">
+    <p style="text-align: center;">For general troubleshooting, mod update status and all other info, visit my site:</p>
+    <div style="text-align: center; margin-top: 1em;">
+      <a href="https://midnitetechmods.com/" target="_blank" class="website-button"><img src="https://i.ibb.co/N6RZbnv4/myprofilepic.png" alt="" width="20" height="20" /> midnitetechmods.com</a>
+    </div>
+     <p style="text-align: center;">Happy Simming!<br>
+      <strong>~midnitetech</strong>💚<div style="text-align: center; margin-top: 1em;">
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
